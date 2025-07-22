@@ -43,14 +43,14 @@ class UserController
 
     public function signUp(): void
     {
-        if ($_POST['username'] == '' || $_POST['email'] == '' || $_POST['password'] == '') {
-            throw new ValidationException("Fields are required");
-        }
         $request = new SignUpRequest();
         $request->username = $_POST['username'];
         $request->email = $_POST['email'];
         $request->password = $_POST['password'];
         try {
+            if ($_POST['username'] == '' || $_POST['email'] == '' || $_POST['password'] == '') {
+                throw new ValidationException("Fields are required");
+            }
             $response = $this->userService->signUp($request);
 
             $_SESSION['user'] = $response->user->id;

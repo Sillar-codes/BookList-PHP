@@ -23,7 +23,6 @@ class UserService
 
     public function signUp(SignUpRequest $request): ?SignUpResponse
     {
-        Database::beginTransaction();
         $user = new User();
         $user->username = $request->username;
         $user->email = $request->email;
@@ -35,7 +34,6 @@ class UserService
         $response = new SignUpResponse();
         $response->user = $user;
 
-        Database::commitTransaction();
         return $response;
     }
 
