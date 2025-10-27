@@ -10,6 +10,7 @@ function getDatabaseConfig()
                 "password" => "Sillarmysql123!"
             ],
             "prod" => [
+                "url" => "mysql:host=localhost:3306;dbname=eshop",
                 "username" => "root",
                 "password" => "Sillarmysql123!"
             ]
