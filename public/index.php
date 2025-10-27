@@ -7,6 +7,8 @@ use EShopPhp\Controller\UserController;
 
 require_once __DIR__ . "/../vendor/autoload.php";
 
+Database::getConnection("prod");
+
 Router::add('GET', '/', BooklistController::class, 'index', []);
 Router::add('GET', '/add', BooklistController::class, 'addBooklist', []);
 Router::add('POST', '/add', BooklistController::class, 'postAddBooklist', []);
